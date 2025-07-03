@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Josh Wong Wai Lun</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- Simple top navigation -->
+  <nav class="simple-nav">
+    <a href="https://www.flickr.com/photos/196031460@N07/" target="_blank" class="simple-link">Album</a>
+    <a href="mailto:wongwailun.josh@gmail.com" class="simple-link">Contact</a>
+    <a href="https://github.com/RorikonJosh" target="_blank" class="simple-link">Github</a>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <div class="hero-section d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="big-intro-title">JOSH WONG WAI LUN</h1>
+    <div class="big-intro-line"></div>
+    <p class="subtitle">A Photographer, Programmer</p>
+
+    <!-- Navigation Buttons Under Try Now -->
+    <div class="nav-buttons d-flex flex-wrap justify-content-center gap-3">
+        <a href="#intro" class="btn btn-outline-light nav-btn">ℹ️ Introduction</a>
+        <a href="#skills" class="btn btn-outline-light nav-btn">✅ Skills</a>
+        <a href="#collection" class="btn btn-outline-light nav-btn">🗂️ Collections</a>
+        <a href="#intro" class="scroll-down-arrow">↓</a>
+    </div>
+
+    <!--
+    <button class="apply-btn mt-3 mb-4"
+       onclick="window.location.href='https://www.kimiyi.ai/pricing'">Try Now</button>    -->
+  </div>
+
+    <!-- 5Card part -->
+    <!-- intro Section (Full Screen) -->
+    <section id="intro" class="intro-section fullscreen-section">
+      <div class="intro-content">
+        <!-- Photo that will animate in from right and move to left -->
+        <div class="intro-photo-container">
+          <img src="jo.jpg" alt="Profile Photo" class="intro-photo">
+        </div>
+
+        <!-- Text content -->
+        <div class="intro-text-container">
+          <h2 class="big-intro-title">Who Am I</h2>
+          <div class="intro-line"></div>
+          <p class="intro-description">
+          I'm a Computer Science student who study in Hong Kong Metropolitan University, I like to study programming and photography in my spare time.
+          </p>
+        </div>
+      </div>
+
+        <!-- Scroll down arrow -->
+        <a href="#skills" class="scroll-down-arrow">↓</a>
+      </div>
+    </section>
+
+<section class="snap-section skills-section" id="skills">
+  <div class="section-header text-center">
+    <h2 class="big-intro-title">Skills</h2>
+    <div class="intro-line"></div>
+    <p class="description">
+      The skills I have acquired and the projects I have worked on
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Python Programming</h3>
+      <p>Use Python to write various small programs, such as GUI calendars and embedded systems.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Web Programming</h3>
+      <p>Use Javascript to create interactive web applications and dynamic user interfaces.</p>
+    </div>
+    <div class="feature-card">
+      <h3>API Integration</h3>
+      <p>Design a program which calling the API endpoints to retrieve and manipulate data.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Photography</h3>
+      <p>Capture the unforgettable shoots and moments that tell a story.</p>
+    </div>
+  </div>
+
+    <a href="#collection" class="scroll-down-arrow">↓</a>
+</section>
+  
+  <!-- collection Section -->
+  <section class="snap-section collection-section" id="collection">
+    <div class="section-header text-center">
+      <h2 class="big-intro-title">Collection of Works</h2>
+      <div class="intro-line"></div>
+      <p class="description">The projects I've done before</p>
+    </div>
+
+    <div class="container py-5">
+    <div class="slider-wrapper">
+    <!-- Card 1 -->
+    <div class="custom-card slider-card active">
+      <div class="image-wrapper">
+        <img src="JSIOGAME.png" alt="Document Image" class="square-image">
+      </div>
+      <div class="text-wrapper">
+        <h5 class="card-title">JS IO Gamepage</h5>
+        <p class="card-text">
+          A minigame page with HTML/JS/CSS. Finished in 2024
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="custom-card slider-card">
+      <div class="image-wrapper">
+        <img src="flight.png" alt="QA Image" class="square-image">
+      </div>
+      <div class="text-wrapper">
+        <h5 class="card-title">Flight Info Tracking System</h5>
+        <p class="card-text">
+          A tracking system for flight information and flight maps. Finished in 2024
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="custom-card slider-card">
+      <div class="image-wrapper">
+        <img src="3D.jpg" alt="URL Image" class="square-image">
+      </div>
+      <div class="text-wrapper">
+        <h5 class="card-title">Embedded Light Cube System</h5>
+        <p class="card-text">
+          An embedded system that can control the light cube with a control panel & micro:bit with python. Finished in 2024 at InspireLab Company
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Slider dots -->
+  <div class="slider-dots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+
+  </section>
+
+
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" id="topBtn" title="Go to top">↑ Top</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    topBtn.addEventListener("click", scrollToTop);
+  </script>
+
+
+
+  <!-- Animation and slide dots -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.slider-card');
+      const dots = document.querySelectorAll('.dot');
+      let currentIndex = 0;
+      let interval;
+
+      function showCard(index) {
+        // Remove all classes from all cards
+        cards.forEach((card, i) => {
+          card.classList.remove('active', 'prev', 'next');
+          
+          if (i === index) {
+            card.classList.add('active');
+          } else if (i < index) {
+            card.classList.add('prev');
+          } else {
+            card.classList.add('next');
+          }
+        });
+
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+
+        currentIndex = index;
+      }
+
+      // Click to change card
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showCard(index);
+          resetAutoPlay();
+        });
+      });
+
+      // Auto play function
+      function autoPlay() {
+        interval = setInterval(() => {
+          let nextIndex = (currentIndex + 1) % cards.length;
+          showCard(nextIndex);
+        }, 4000); // 4 seconds
+      }
+
+      function resetAutoPlay() {
+        clearInterval(interval);
+        autoPlay();
+      }
+
+      // Initial setup
+      if (cards.length > 0) {
+        showCard(0);
+        autoPlay();
+      }
+
+      // Pause on hover
+      const sliderWrapper = document.querySelector('.slider-wrapper');
+      if (sliderWrapper) {
+        sliderWrapper.addEventListener('mouseenter', () => {
+          clearInterval(interval);
+        });
+
+        sliderWrapper.addEventListener('mouseleave', () => {
+          autoPlay();
+        });
+      }
+    });
+  </script>
+
+  <script>
+  // Scroll animation for intro section
+  document.addEventListener("DOMContentLoaded", () => {
+    const introSection = document.getElementById('intro');
+    const photoContainer = document.querySelector('.intro-photo-container');
+    const textContainer = document.querySelector('.intro-text-container');
+    const title = document.querySelector('.intro-title');
+    const line = document.querySelector('.intro-line');
+    const description = document.querySelector('.intro-description');
+
+  // Intersection Observer for scroll detection
+  const observerOptions = {
+    threshold: 0.3, // Trigger when 30% of section is visible
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add animation classes with staggered timing
+        setTimeout(() => {
+          photoContainer?.classList.add('animate');
+        }, 100);
+        
+        setTimeout(() => {
+          textContainer?.classList.add('animate');
+        }, 600);
+        
+        setTimeout(() => {
+          title?.classList.add('animate');
+        }, 900);
+        
+        setTimeout(() => {
+          line?.classList.add('animate');
+        }, 1300);
+        
+        setTimeout(() => {
+          description?.classList.add('animate');
+        }, 1600);
+        
+        // Remove observer after animation to prevent re-triggering
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Start observing the intro section
+  if (introSection) {
+    observer.observe(introSection);
+    }
+  });
+  </script>
+
+
+
+</body>
+</html>
