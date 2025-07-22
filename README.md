@@ -12,3 +12,7 @@ Link: https://rorikonjosh.github.io/Personal-Website/
 - The webpage ratio on smart-phone will break (Waiting to fix)
 - The information of 4th dots uploaded
 2025-07-22
+--------------------------------------------------------------------------------------------
+## Version 2.0--
+- Mobile version updated
+2025-07-22
