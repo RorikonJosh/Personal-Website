@@ -15,13 +15,35 @@
 </head>
 <body>
 
-  <!-- Simple top navigation -->
-  <nav class="simple-nav">
+  <!-- Simple top navigation (Desktop) -->
+  <nav class="simple-nav d-none d-md-flex">
     <a href="https://www.flickr.com/photos/196031460@N07/" target="_blank" class="simple-link">Album</a>
     <a href="mailto:wongwailun.josh@gmail.com" class="simple-link">Contact</a>
     <a href="https://github.com/RorikonJosh" target="_blank" class="simple-link">Github</a>
   </nav>
 
+  <!-- Mobile Navigation Button -->
+  <div class="mobile-nav-toggle d-md-none">
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav-menu" id="mobileNavMenu">
+    <div class="mobile-nav-content">
+      <ul class="mobile-nav-list">
+        <li><a href="#intro" onclick="toggleMobileMenu()">ℹ️ Introduction</a></li>
+        <li><a href="#skills-mobile" onclick="toggleMobileMenu()">✅ Skills</a></li>
+        <li><a href="#collection-mobile" onclick="toggleMobileMenu()">🗂️ Collections</a></li>
+        <li><a href="https://www.flickr.com/photos/196031460@N07/" target="_blank" onclick="toggleMobileMenu()">📷 Album</a></li>
+        <li><a href="mailto:wongwailun.josh@gmail.com" onclick="toggleMobileMenu()">📧 Contact</a></li>
+        <li><a href="https://github.com/RorikonJosh" target="_blank" onclick="toggleMobileMenu()">💻 Github</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <div class="hero-section d-flex flex-column justify-content-center align-items-center text-center">
@@ -29,73 +51,108 @@
     <div class="big-intro-line"></div>
     <p class="subtitle">A Photographer, Programmer</p>
 
-    <!-- Navigation Buttons Under Try Now -->
-    <div class="nav-buttons d-flex flex-wrap justify-content-center gap-3">
+    <!-- Navigation Buttons (Desktop) -->
+    <div class="nav-buttons d-none d-md-flex flex-wrap justify-content-center gap-3">
         <a href="#intro" class="btn btn-outline-light nav-btn">ℹ️ Introduction</a>
         <a href="#skills" class="btn btn-outline-light nav-btn">✅ Skills</a>
         <a href="#collection" class="btn btn-outline-light nav-btn">🗂️ Collections</a>
-        <a href="#intro" class="scroll-down-arrow">↓</a>
     </div>
 
+    <a href="#intro" class="scroll-down-arrow">↓</a>
   </div>
 
-    <!-- 5Card part -->
-    <!-- intro Section (Full Screen) -->
-    <section id="intro" class="intro-section fullscreen-section">
-      <div class="intro-content">
-        <!-- Photo that will animate in from right and move to left -->
-        <div class="intro-photo-container">
-          <img src="jo.jpg" alt="Profile Photo" class="intro-photo">
-        </div>
-
-        <!-- Text content -->
-        <div class="intro-text-container">
-          <h2 class="big-intro-title">Who Am I</h2>
-          <div class="intro-line"></div>
-          <p class="intro-description">
-          I'm a Computer Science student who study in Hong Kong Metropolitan University, I like to study programming and photography in my spare time.
-          </p>
-        </div>
+  <!-- Introduction Section -->
+  <section id="intro" class="intro-section fullscreen-section">
+    <div class="intro-content">
+      <div class="intro-photo-container">
+        <img src="jo.jpg" alt="Profile Photo" class="intro-photo">
       </div>
-
-        <!-- Scroll down arrow -->
-        <a href="#skills" class="scroll-down-arrow">↓</a>
+      <div class="intro-text-container">
+        <h2 class="big-intro-title">Who Am I</h2>
+        <div class="intro-line"></div>
+        <p class="intro-description">
+        I'm a Computer Science student who study in Hong Kong Metropolitan University, I like to study programming and photography in my spare time.
+        </p>
       </div>
-    </section>
+    </div>
+    <a href="#skills" class="scroll-down-arrow d-none d-md-block">↓</a>
+    <a href="#skills-mobile" class="scroll-down-arrow d-md-none">↓</a>
+  </section>
 
-<section class="snap-section skills-section" id="skills">
-  <div class="section-header text-center">
-    <h2 class="big-intro-title">Skills</h2>
-    <div class="intro-line"></div>
-    <p class="description">
-      The skills I have acquired and the projects I have worked on
-    </p>
-  </div>
+  <!-- Desktop Skills Section -->
+  <section class="snap-section skills-section d-none d-md-flex" id="skills">
+    <div class="section-header text-center">
+      <h2 class="big-intro-title">Skills</h2>
+      <div class="intro-line"></div>
+      <p class="description">
+        The skills I have acquired and the projects I have worked on
+      </p>
+    </div>
 
-  <div class="feature-grid">
-    <div class="feature-card">
-      <h3>Python Programming</h3>
-      <p>Use Python to write various small programs, such as GUI calendars and embedded systems.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Python Programming</h3>
+        <p>Use Python to write various small programs, such as GUI calendars and embedded systems.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Web Programming</h3>
+        <p>Use Javascript to create interactive web applications and dynamic user interfaces.</p>
+      </div>
+      <div class="feature-card">
+        <h3>API Integration</h3>
+        <p>Design a program which calling the API endpoints to retrieve and manipulate data.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Photography</h3>
+        <p>Capture the unforgettable shoots and moments that tell a story.</p>
+      </div>
     </div>
-    <div class="feature-card">
-      <h3>Web Programming</h3>
-      <p>Use Javascript to create interactive web applications and dynamic user interfaces.</p>
-    </div>
-    <div class="feature-card">
-      <h3>API Integration</h3>
-      <p>Design a program which calling the API endpoints to retrieve and manipulate data.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Photography</h3>
-      <p>Capture the unforgettable shoots and moments that tell a story.</p>
-    </div>
-  </div>
 
     <a href="#collection" class="scroll-down-arrow">↓</a>
-</section>
+  </section>
+
+  <!-- Mobile Skills Section -->
+  <section class="mobile-skills-section d-md-none" id="skills-mobile">
+    <div class="mobile-section-header">
+      <h2 class="mobile-section-title">Skills</h2>
+      <p class="mobile-section-description">
+        The skills I have acquired and the projects I have worked on
+      </p>
+    </div>
+
+    <div class="mobile-skills-grid">
+      <div class="mobile-skill-card">
+        <div class="mobile-skill-icon"><img src="pythonlogo.png" alt="pythonlogo image"></div>
+        <h3>Python Programming</h3>
+        <p>Use Python to write various small programs, such as GUI calendars and embedded systems.</p>
+      </div>
+      <div class="mobile-skill-card">
+        <div class="mobile-skill-icon">🌐</div>
+        <h3>Web Programming</h3>
+        <p>Use Javascript to create interactive web applications and dynamic user interfaces.</p>
+      </div>
+      <div class="mobile-skill-card">
+        <div class="mobile-skill-icon">🔗</div>
+        <h3>API Integration</h3>
+        <p>Design a program which calling the API endpoints to retrieve and manipulate data.</p>
+      </div>
+      <div class="mobile-skill-card">
+        <div class="mobile-skill-icon">📸</div>
+        <h3>Photography</h3>
+        <p>Capture the unforgettable shoots and moments that tell a story.</p>
+      </div>
+    </div>
+
+    <div class="mobile-nav-arrow">
+      <a href="#collection-mobile" class="mobile-scroll-btn">
+        <span>View Collections</span>
+        <span class="arrow">↓</span>
+      </a>
+    </div>
+  </section>
   
-  <!-- collection Section -->
-  <section class="snap-section collection-section" id="collection">
+  <!-- Desktop Collection Section -->
+  <section class="snap-section collection-section d-none d-md-flex" id="collection">
     <div class="section-header text-center">
       <h2 class="big-intro-title">Collection of Works</h2>
       <div class="intro-line"></div>
@@ -103,77 +160,132 @@
     </div>
 
     <div class="container py-5">
-    <div class="slider-wrapper">
-    <!-- Card 1 -->
-    <div class="custom-card slider-card active">
-      <div class="image-wrapper">
-        <img src="JSIOGAME.png" alt="IOgame Page Image" class="square-image">
+      <div class="slider-wrapper">
+        <!-- Desktop slider cards (same as before) -->
+        <div class="custom-card slider-card active">
+          <div class="image-wrapper">
+            <img src="JSIOGAME.png" alt="IOgame Page Image" class="square-image">
+          </div>
+          <div class="text-wrapper">
+            <h5 class="card-title">JS IO Gamepage</h5>
+            <p class="card-text">A minigame page with HTML/JS/CSS. Finished in 2024</p>
+          </div>
+        </div>
+
+        <div class="custom-card slider-card">
+          <div class="image-wrapper">
+            <img src="flight.png" alt="Flight System Image" class="square-image">
+          </div>
+          <div class="text-wrapper">
+            <h5 class="card-title">Flight Info Tracking System</h5>
+            <p class="card-text">A tracking system for flight information and flight maps. Finished in 2024</p>
+          </div>
+        </div>
+
+        <div class="custom-card slider-card">
+          <div class="image-wrapper">
+            <img src="3D.jpg" alt="Embedded Systems Image" class="square-image">
+          </div>
+          <div class="text-wrapper">
+            <h5 class="card-title">Embedded Light Cube System</h5>
+            <p class="card-text">An embedded system that can control the light cube with a control panel & micro:bit with python. Finished in 2024 at InspireLab Company</p>
+          </div>
+        </div>
+
+        <div class="custom-card slider-card">
+          <div class="image-wrapper">
+            <img src="jixo.png" alt="Interactive Website Image" class="square-image">
+          </div>
+          <div class="text-wrapper">
+            <h5 class="card-title">Interactive Website</h5>
+            <p class="card-text">An interactive website built with modern web technologies, contain 3 different type of languages and can change by clicking language list. Finished in 2025 and holded on Github.</p>
+          </div>
+        </div>
       </div>
-      <div class="text-wrapper">
-        <h5 class="card-title">JS IO Gamepage</h5>
-        <p class="card-text">
-          A minigame page with HTML/JS/CSS. Finished in 2024
-        </p>
+
+      <div class="slider-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="custom-card slider-card">
-      <div class="image-wrapper">
-        <img src="flight.png" alt="Flight System Image" class="square-image">
-      </div>
-      <div class="text-wrapper">
-        <h5 class="card-title">Flight Info Tracking System</h5>
-        <p class="card-text">
-          A tracking system for flight information and flight maps. Finished in 2024
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="custom-card slider-card">
-      <div class="image-wrapper">
-        <img src="3D.jpg" alt="Embedded Systems Image" class="square-image">
-      </div>
-      <div class="text-wrapper">
-        <h5 class="card-title">Embedded Light Cube System</h5>
-        <p class="card-text">
-          An embedded system that can control the light cube with a control panel & micro:bit with python. Finished in 2024 at InspireLab Company
-        </p>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="custom-card slider-card">
-      <div class="image-wrapper">
-        <img src="jixo.png" alt="Interactive Website Image" class="square-image">
-      </div>
-      <div class="text-wrapper">
-        <h5 class="card-title">Interactive Website</h5>
-        <p class="card-text">
-          An interactive website built with modern web technologies, contain 3 different type of languages and can change by clicking language list. Finished in 2025 and holded on Github.
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-    <!-- Slider dots -->
-  <div class="slider-dots">
-    <span class="dot active" data-index="0"></span>
-    <span class="dot" data-index="1"></span>
-    <span class="dot" data-index="2"></span>
-    <span class="dot" data-index="3"></span>
-  </div>
-
   </section>
 
+  <!-- Mobile Collection Section -->
+  <section class="mobile-collection-section d-md-none" id="collection-mobile">
+    <div class="mobile-section-header">
+      <h2 class="mobile-section-title">Collection of Works</h2>
+      <p class="mobile-section-description">The projects I've done before</p>
+    </div>
 
+    <div class="mobile-collection-grid">
+      <div class="mobile-collection-card">
+        <div class="mobile-collection-image">
+          <img src="JSIOGAME.png" alt="IOgame Page Image">
+        </div>
+        <div class="mobile-collection-content">
+          <h3>JS IO Gamepage</h3>
+          <p>A minigame page with HTML/JS/CSS. Finished in 2024</p>
+          <span class="mobile-collection-year">2024</span>
+        </div>
+      </div>
+
+      <div class="mobile-collection-card">
+        <div class="mobile-collection-image">
+          <img src="flight.png" alt="Flight System Image">
+        </div>
+        <div class="mobile-collection-content">
+          <h3>Flight Info Tracking System</h3>
+          <p>A tracking system for flight information and flight maps. Finished in 2024</p>
+          <span class="mobile-collection-year">2024</span>
+        </div>
+      </div>
+
+      <div class="mobile-collection-card">
+        <div class="mobile-collection-image">
+          <img src="3D.jpg" alt="Embedded Systems Image">
+        </div>
+        <div class="mobile-collection-content">
+          <h3>Embedded Light Cube System</h3>
+          <p>An embedded system that can control the light cube with a control panel & micro:bit with python. Finished in 2024 at InspireLab Company</p>
+          <span class="mobile-collection-year">2024</span>
+        </div>
+      </div>
+
+      <div class="mobile-collection-card">
+        <div class="mobile-collection-image">
+          <img src="jixo.png" alt="Interactive Website Image">
+        </div>
+        <div class="mobile-collection-content">
+          <h3>Interactive Website</h3>
+          <p>An interactive website built with modern web technologies, contain 3 different type of languages and can change by clicking language list. Finished in 2025 and holded on Github.</p>
+          <span class="mobile-collection-year">2025</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-back-to-top">
+      <button onclick="scrollToTop()" class="mobile-top-btn">
+        <span>Back to Top</span>
+        <span class="arrow">↑</span>
+      </button>
+    </div>
+  </section>
 
   <!-- Back to Top Button -->
-  <button onclick="scrollToTop()" id="topBtn" title="Go to top">↑ Top</button>
+  <button onclick="scrollToTop()" id="topBtn" title="Go to top" class="d-none d-md-block">↑ Top</button>
 
+  <!-- Scripts -->
   <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileNavMenu');
+      menu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    }
+
+    // Back to top functionality
     const topBtn = document.getElementById("topBtn");
 
     window.onscroll = function () {
@@ -188,12 +300,33 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    topBtn.addEventListener("click", scrollToTop);
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileNavMenu');
+      const toggle = document.querySelector('.mobile-menu-btn');
+      
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+
+    // Smooth scrolling for mobile
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 
-
-
-  <!-- Animation and slide dots -->
+  <!-- Desktop slider script (existing) -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const cards = document.querySelectorAll('.slider-card');
@@ -202,7 +335,6 @@
       let interval;
 
       function showCard(index) {
-        // Remove all classes from all cards
         cards.forEach((card, i) => {
           card.classList.remove('active', 'prev', 'next');
           
@@ -215,7 +347,6 @@
           }
         });
 
-        // Update dots
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === index);
         });
@@ -223,7 +354,6 @@
         currentIndex = index;
       }
 
-      // Click to change card
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
           showCard(index);
@@ -231,12 +361,11 @@
         });
       });
 
-      // Auto play function
       function autoPlay() {
         interval = setInterval(() => {
           let nextIndex = (currentIndex + 1) % cards.length;
           showCard(nextIndex);
-        }, 4000); // 4 seconds
+        }, 4000);
       }
 
       function resetAutoPlay() {
@@ -244,13 +373,11 @@
         autoPlay();
       }
 
-      // Initial setup
       if (cards.length > 0) {
         showCard(0);
         autoPlay();
       }
 
-      // Pause on hover
       const sliderWrapper = document.querySelector('.slider-wrapper');
       if (sliderWrapper) {
         sliderWrapper.addEventListener('mouseenter', () => {
@@ -264,60 +391,54 @@
     });
   </script>
 
+  <!-- Animation script (existing) -->
   <script>
-  // Scroll animation for intro section
-  document.addEventListener("DOMContentLoaded", () => {
-    const introSection = document.getElementById('intro');
-    const photoContainer = document.querySelector('.intro-photo-container');
-    const textContainer = document.querySelector('.intro-text-container');
-    const title = document.querySelector('.intro-title');
-    const line = document.querySelector('.intro-line');
-    const description = document.querySelector('.intro-description');
+    document.addEventListener("DOMContentLoaded", () => {
+      const introSection = document.getElementById('intro');
+      const photoContainer = document.querySelector('.intro-photo-container');
+      const textContainer = document.querySelector('.intro-text-container');
+      const title = document.querySelector('.intro-title');
+      const line = document.querySelector('.intro-line');
+      const description = document.querySelector('.intro-description');
 
-  // Intersection Observer for scroll detection
-  const observerOptions = {
-    threshold: 0.3, // Trigger when 30% of section is visible
-    rootMargin: '0px 0px -50px 0px'
-  };
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add animation classes with staggered timing
-        setTimeout(() => {
-          photoContainer?.classList.add('animate');
-        }, 100);
-        
-        setTimeout(() => {
-          textContainer?.classList.add('animate');
-        }, 600);
-        
-        setTimeout(() => {
-          title?.classList.add('animate');
-        }, 900);
-        
-        setTimeout(() => {
-          line?.classList.add('animate');
-        }, 1300);
-        
-        setTimeout(() => {
-          description?.classList.add('animate');
-        }, 1600);
-        
-        // Remove observer after animation to prevent re-triggering
-        observer.unobserve(entry.target);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              photoContainer?.classList.add('animate');
+            }, 100);
+            
+            setTimeout(() => {
+              textContainer?.classList.add('animate');
+            }, 600);
+            
+            setTimeout(() => {
+              title?.classList.add('animate');
+            }, 900);
+            
+            setTimeout(() => {
+              line?.classList.add('animate');
+            }, 1300);
+            
+            setTimeout(() => {
+              description?.classList.add('animate');
+            }, 1600);
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      if (introSection) {
+        observer.observe(introSection);
       }
     });
-  }, observerOptions);
-
-  // Start observing the intro section
-  if (introSection) {
-    observer.observe(introSection);
-    }
-  });
   </script>
-
-
 
 </body>
 </html>

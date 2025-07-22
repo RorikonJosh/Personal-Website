@@ -10,44 +10,52 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .hero-section {
   height: 100vh;
-  padding: 0 5vw;
+  min-height: 600px; /* Ensure minimum height for mobile */
+  padding: 0 clamp(3vw, 5vw, 5vw); /* Better mobile padding */
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 /* Title scales with viewport width */
 .title, .intro-title {
-  font-size: clamp(28px, 5.1vw, 64px);
+  font-size: clamp(24px, 6vw, 64px); /* Better mobile scaling */
   font-weight: 800;
-  margin-bottom: 1vw;
+  margin-bottom: clamp(0.5rem, 2vw, 1vw);
+  line-height: 1.2; /* Improve mobile readability */
 }
 
 /* Subtitle scales too */
 .subtitle {
-  font-size: clamp(16px, 1.7vw, 30px);
+  font-size: clamp(14px, 3.5vw, 30px); /* Better mobile scaling */
   color: #333;
-  max-width: 60vw;
-  margin: 0 auto 2vw auto;
+  max-width: 90vw; /* Increase width for mobile */
+  margin: 0 auto clamp(1rem, 3vw, 2vw) auto;
+  line-height: 1.4;
+  padding: 0 1rem; /* Add padding for mobile */
 }
 
 /* Try Now Button */
 .apply-btn {
   background-color: #0B1F66;
   color: white;
-  padding: clamp(12px, 1.275vw, 24px) clamp(20px, 2.55vw, 40px);
-  border-radius: clamp(6px, 0.85vw, 16px);
+  padding: clamp(12px, 2.5vw, 24px) clamp(20px, 4vw, 40px);
+  border-radius: clamp(6px, 1.5vw, 16px);
   border: none;
   font-weight: bold;
-  font-size: clamp(16px, 1.7vw, 28px);
+  font-size: clamp(14px, 3.5vw, 28px); /* Better mobile scaling */
   transition: background-color 0.3s ease;
   cursor: pointer;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  max-width: 90vw; /* Prevent overflow on mobile */
 }
 
 .apply-btn:hover {
@@ -59,23 +67,27 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   margin-bottom: 2rem;
+  padding: 0 1rem; /* Add padding for mobile */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-buttons .nav-btn {
-  font-size: clamp(14px, 1.5vw, 24px);
-  padding: clamp(10px, 1vw, 18px) clamp(16px, 2vw, 32px);
+  font-size: clamp(12px, 3vw, 24px); /* Better mobile scaling */
+  padding: clamp(8px, 2vw, 18px) clamp(12px, 3vw, 32px);
   color: #0B1F66;
   border: 2px solid #0B1F66;
   background: transparent;
   transition: all 0.2s ease;
-  min-width: clamp(140px, 15vw, 240px);
+  min-width: clamp(120px, 25vw, 240px); /* Better mobile width */
   text-align: center;
   white-space: nowrap;
-  border-radius: clamp(6px, 0.8vw, 16px);
+  border-radius: clamp(6px, 1.5vw, 16px);
   text-decoration: none;
   display: inline-block;
+  box-sizing: border-box;
 }
 
 .nav-buttons .nav-btn:hover {
@@ -83,15 +95,31 @@ body {
   color: white;
 }
 
-/* ====== 卡片容器 ====== */
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .nav-buttons .nav-btn {
+    width: 85%;
+    max-width: 300px;
+    white-space: normal; /* Allow text wrapping on very small screens */
+  }
+}
+
+/* ====== Card Container ====== */
 .card-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(1.5rem, 3vw, 2rem);
   align-items: center;
-  margin: 4vw auto;
+  margin: clamp(2rem, 4vw, 4vw) auto;
   width: 95%;
   max-width: 1200px;
+  padding: 0 clamp(1rem, 3vw, 2rem); /* Add padding for mobile */
 }
 
 @media (min-width: 1024px) {
@@ -103,36 +131,47 @@ body {
   }
 }
 
-/* ====== 單一卡片樣式 ====== */
+/* ====== Single Card Style ====== */
 .custom-card {
   background-color: white;
-  border-radius: clamp(12px, 1.5vw, 24px);
-  box-shadow: 0 0.5vw 1.5vw rgba(0, 0, 0, 0.1);
-  margin: 2vw auto;
+  border-radius: clamp(12px, 2vw, 24px);
+  box-shadow: 0 8px 32px   rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   width: 100%;
   max-width: 1200px;
-  min-height: 300px;
+  min-height: clamp(250px, 40vw, 300px); /* Better mobile height */
 }
 
 @media (min-width: 768px) {
   .custom-card {
     flex-direction: row;
     height: 340px;
+    min-height: 340px;
   }
 }
 
-/* ====== 圖片區塊 ====== */
+/* ====== Image Block ====== */
 .image-wrapper {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f5f7fa;
-  padding: 1rem;
-  min-height: 300px;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  min-height: 250px; /* Better mobile height */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .image-wrapper {
+    min-height: 200px;
+    aspect-ratio: 16/10;
+    padding: 1.5rem; /* Better mobile height */
+  }
+  
 }
 
 .square-image {
@@ -140,95 +179,146 @@ body {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  border-radius: clamp(10px, 1.2vw, 20px);
+  border-radius: clamp(8px, 2vw, 16px);
 }
 
-/* ====== 文字區塊 ====== */
+@media (max-width: 768px) {
+  .square-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%; /* Maintain aspect ratio on small screens */
+    max-height: 160px; /* Limit height for mobile */
+  }
+  
+}
+
+/* ====== Text Block ====== */
 .text-wrapper {
   flex: 1;
-  padding: 2vw 3vw;
+  padding: clamp(1.5rem, 4vw, 3rem);
   text-align: center;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* Better mobile spacing */
+  min-height: auto;
+}
+
+@media (max-width: 767px) {
+  .text-wrapper {
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+  }
 }
 
 @media (min-width: 768px) {
   .text-wrapper {
     text-align: left;
+    min-height: 200px;
   }
 }
 
 .card-title {
-  font-size: clamp(20px, 2.5vw, 36px);
+  font-size: clamp(20px, 5vw, 36px); /* Increase mobile font size */
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.8rem, 3vw, 1.2rem);
   color: #0B1F66;
+  line-height: 1.3;
 }
 
 .card-text {
-  font-size: clamp(14px, 1.5vw, 22px);
+  font-size: clamp(16px, 4vw, 22px); /* Increase mobile font size */
   color: #555;
   line-height: 1.6;
+  margin: 0;
 }
+
+@media (max-width: 767px) {
+  .custom-card {
+    min-height: 450px; /* Better mobile scaling */
+  }
+
+  .image-wrapper {
+    aspect-ratio: 3/2;
+    height: auto;
+  }
+
+  .text-wrapper {
+    flex: 1;
+  }
+  
+}
+
 
 /* Back to Top Button */
 #topBtn {
   position: fixed;
-  bottom: 2vw;
-  right: 2vw;
+  bottom: clamp(1rem, 3vw, 2vw);
+  right: clamp(1rem, 3vw, 2vw);
   z-index: 999;
-  font-size: clamp(12px, 1.2vw, 20px);
+  font-size: clamp(12px, 2.5vw, 20px);
   border: none;
   outline: none;
   background-color: #0B1F66;
   color: white;
   cursor: pointer;
-  padding: clamp(8px, 1vw, 16px) clamp(10px, 1.5vw, 20px);
-  border-radius: clamp(6px, 1vw, 16px);
+  padding: clamp(10px, 2vw, 16px);
+  border-radius: clamp(6px, 1.5vw, 16px);
   display: none;
   box-shadow: 0 0.3vw 0.8vw rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
+  min-width: 44px; /* Ensure touch target size */
+  min-height: 44px;
 }
 
 #topBtn:hover {
   background-color: #163d9f;
 }
 
+
 /* Section Headers */
 .section-header {
   text-align: center;
-  padding-top: 4rem;
-  margin-bottom: 2rem;
+  padding-top: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
 }
 
 .subheading {
-  font-size: clamp(24px, 4vw, 48px);
+  font-size: clamp(22px, 5vw, 48px); /* Better mobile scaling */
   font-weight: 700;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: clamp(2rem, 6vw, 4rem);
+  line-height: 1.2;
+  padding: 0 1rem; /* Add padding for mobile */
 }
 
 .description {
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(14px, 3vw, 22px); /* Better mobile scaling */
   color: #444;
   text-align: center;
-  max-width: 900px;
-  margin: 1rem auto 3rem auto;
+  max-width: 90vw; /* Better mobile width */
+  margin: clamp(0.5rem, 2vw, 1rem) auto clamp(1.5rem, 4vw, 3rem) auto;
   line-height: 1.6;
+  padding: 0 1rem; /* Add padding for mobile */
+}
+
+@media (min-width: 768px) {
+  .description {
+    max-width: 900px;
+  }
 }
 
 /* Feature Grid */
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 0 5vw;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 0 clamp(3vw, 5vw, 5vw);
   max-width: 1200px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto clamp(2rem, 6vw, 4rem) auto;
 }
 
 @media (min-width: 768px) {
@@ -239,8 +329,8 @@ body {
 
 .feature-card {
   background: rgb(225, 242, 247);
-  border-radius: clamp(12px, 1vw, 20px);
-  padding: 2rem;
+  border-radius: clamp(12px, 2vw, 20px);
+  padding: clamp(1rem, 3vw, 2rem);
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -251,13 +341,14 @@ body {
 }
 
 .feature-card h3 {
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(16px, 4vw, 28px); /* Better mobile scaling */
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: clamp(0.5rem, 2vw, 0.8rem);
+  line-height: 1.3;
 }
 
 .feature-card p {
-  font-size: clamp(14px, 1.3vw, 20px);
+  font-size: clamp(14px, 3vw, 20px); /* Better mobile scaling */
   color: #555;
   line-height: 1.6;
 }
@@ -265,18 +356,19 @@ body {
 /* === Full Screen Sections === */
 .skills-section, .collection-section {
   height: 100vh;
+  min-height: 600px; /* Ensure minimum height for mobile */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 5vw;
+  padding: 0 clamp(3vw, 5vw, 5vw);
   text-align: center;
   position: relative;
   box-sizing: border-box;
 }
 
 .big-intro-title {
-  font-size: clamp(28px, 5vw, 56px);
+  font-size: clamp(24px, 6vw, 56px); /* Better mobile scaling */
   font-weight: 800;
   background: linear-gradient(to right, #0B1F66, #4a7ef3);
   -webkit-background-clip: text;
@@ -284,31 +376,42 @@ body {
   background-clip: text;
   display: inline-block;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .big-intro-line {
-  width: 80px;
+  width: clamp(60px, 10vw, 80px); /* Responsive width */
   height: 4px;
   background-color: #0B1F66;
   margin: 1rem auto;
   border-radius: 2px;
 }
 
+/* ⚠️ REDUNDANT: .intro-description is defined multiple times with different properties */
+/* This definition conflicts with the one below */
 .intro-description {
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(14px, 3vw, 22px); /* Better mobile scaling */
   color: #444;
-  max-width: 800px;
+  max-width: 90vw; /* Better mobile width */
   margin: 0 auto 2rem auto;
   line-height: 1.7;
+  padding: 0 1rem; /* Add padding for mobile */
+}
+
+@media (min-width: 768px) {
+  .intro-description {
+    max-width: 800px;
+  }
 }
 
 .intro-section {
   height: 100vh;
+  min-height: 600px; /* Ensure minimum height for mobile */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 5vw;
+  padding: 0 clamp(3vw, 5vw, 5vw);
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -317,7 +420,7 @@ body {
 .intro-content {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(2rem, 5vw, 3rem); /* Responsive gap */
   max-width: 1200px;
   width: 100%;
   flex-direction: column;
@@ -346,8 +449,8 @@ body {
 }
 
 .intro-photo {
-  width: 300px;
-  height: 300px;
+  width: clamp(200px, 40vw, 300px); /* Responsive size */
+  height: clamp(200px, 40vw, 300px);
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 20px 60px rgba(11, 31, 102, 0.3);
@@ -381,8 +484,9 @@ body {
 }
 
 /* Enhanced title animation */
+/* ⚠️ REDUNDANT: .intro-title is already defined above with similar properties */
 .intro-title {
-  font-size: clamp(28px, 5vw, 56px);
+  font-size: clamp(24px, 6vw, 56px); /* Better mobile scaling */
   font-weight: 800;
   background: linear-gradient(to right, #0B1F66, #4a7ef3);
   -webkit-background-clip: text;
@@ -394,6 +498,7 @@ body {
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.8s;
+  line-height: 1.2;
 }
 
 .intro-title.animate {
@@ -418,17 +523,20 @@ body {
 }
 
 .intro-line.animate {
-  width: 80px;
+  width: clamp(60px, 10vw, 80px); /* Responsive width */
 }
 
+/* ⚠️ REDUNDANT: .intro-description is defined multiple times */
+/* This conflicts with the earlier definition */
 .intro-description {
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(14px, 3vw, 22px); /* Better mobile scaling */
   color: #444;
   line-height: 1.7;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 1.5s;
+  padding: 0 1rem; /* Add padding for mobile */
 }
 
 .intro-description.animate {
@@ -438,13 +546,14 @@ body {
 
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {
+  /* ⚠️ REDUNDANT: .intro-photo size is already handled by clamp() above */
   .intro-photo {
-    width: 250px;
-    height: 250px;
+    width: clamp(180px, 35vw, 250px);
+    height: clamp(180px, 35vw, 250px);
   }
   
   .intro-content {
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2rem);
   }
   
   .intro-photo-container {
@@ -464,11 +573,11 @@ body {
   }
 }
 
-/* 向下箭頭樣式 */
+/* Down arrow style */
 .scroll-down-arrow {
   position: absolute;
-  bottom: 30px;
-  font-size: 2rem;
+  bottom: clamp(20px, 5vw, 30px); /* Responsive bottom position */
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive size */
   color: #0B1F66;
   animation: bounce 1.5s infinite;
   cursor: pointer;
@@ -490,8 +599,9 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 360px;
+  min-height: clamp(300px, 50vw, 360px); /* Responsive height */
   overflow: hidden;
+  padding: 0 1rem; /* Add padding for mobile */
 }
 
 .slider-card {
@@ -508,10 +618,10 @@ body {
   display: flex;
   flex-direction: column;
   background: white;
-  border-radius: 1rem;
+  border-radius: clamp(0.5rem, 2vw, 1rem); /* Responsive border radius */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  min-height: 340px;
+  min-height: clamp(280px, 45vw, 340px); /* Responsive height */
   z-index: 1;
 }
 
@@ -544,15 +654,15 @@ body {
 .slider-dots {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem;
+  margin-top: clamp(1rem, 3vw, 2rem); /* Responsive margin */
+  gap: clamp(0.5rem, 2vw, 1rem); /* Responsive gap */
   z-index: 10;
   position: relative;
 }
 
 .dot {
-  width: 16px;
-  height: 16px;
+  width: clamp(12px, 3vw, 16px); /* Responsive size */
+  height: clamp(12px, 3vw, 16px);
   border-radius: 50%;
   background-color: #ccc;
   cursor: pointer;
@@ -574,25 +684,447 @@ body {
 /* Simple Navigation */
 .simple-nav {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: clamp(1rem, 3vw, 2rem); /* Responsive top position */
+  right: clamp(1rem, 3vw, 2rem); /* Responsive right position */
   z-index: 1000;
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem); /* Responsive gap */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .simple-link {
   color: #0B1F66;
   text-decoration: none;
   font-weight: 600;
-  font-size: clamp(14px, 1.2vw, 18px);
-  padding: 0.5rem 1rem;
+  font-size: clamp(12px, 2.5vw, 18px); /* Better mobile scaling */
+  padding: clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 0.5rem;
+  border-radius: clamp(0.3rem, 1vw, 0.5rem); /* Responsive border radius */
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .simple-link:hover {
   background: #0B1F66;
   color: white;
+}
+
+/* Hide navigation on very small screens */
+@media (max-width: 480px) {
+  .simple-nav {
+    display: none; /* Hide on mobile to save space */
+  }
+}
+
+/* =============== MOBILE NAVIGATION =============== */
+
+/* Mobile Navigation Toggle Button */
+.mobile-nav-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+.mobile-menu-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 3px;
+  background-color: #0B1F66;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(135deg, #0B1F66 0%, #163d9f 100%);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-menu.active {
+  right: 0;
+}
+
+.mobile-nav-content {
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-close:hover {
+  transform: scale(1.1);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0 0;
+}
+
+.mobile-nav-list li {
+  margin-bottom: 1rem;
+}
+
+.mobile-nav-list a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  display: block;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobile-nav-list a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: #4a7ef3;
+  transform: translateX(5px);
+}
+
+/* Mobile Navigation Buttons */
+.mobile-nav-buttons {
+  margin-top: 1rem;
+}
+
+.mobile-nav-buttons .nav-btn {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* =============== MOBILE SKILLS SECTION =============== */
+
+.mobile-skills-section {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(to bottom, #f8f9ff 0%, #ffffff 100%);
+}
+
+.mobile-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mobile-section-title {
+  font-size: clamp(28px, 8vw, 48px);
+  font-weight: 800;
+  background: linear-gradient(to right, #0B1F66, #4a7ef3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.mobile-section-description {
+  font-size: clamp(16px, 4vw, 20px);
+  color: #666;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.mobile-skills-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.mobile-skill-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-skill-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+}
+
+.mobile-skill-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.mobile-skill-card h3 {
+  font-size: clamp(20px, 5vw, 24px);
+  font-weight: 700;
+  color: #0B1F66;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.mobile-skill-card p {
+  font-size: clamp(14px, 4vw, 16px);
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mobile-nav-arrow {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mobile-scroll-btn {
+  background: linear-gradient(135deg, #0B1F66 0%, #4a7ef3 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(11, 31, 102, 0.3);
+}
+
+.mobile-scroll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(11, 31, 102, 0.4);
+  color: white;
+}
+
+.mobile-scroll-btn .arrow {
+  font-size: 1.2rem;
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* =============== MOBILE COLLECTION SECTION =============== */
+
+.mobile-collection-section {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9ff 100%);
+}
+
+.mobile-collection-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mobile-collection-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-collection-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-collection-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-collection-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mobile-collection-card:hover .mobile-collection-image img {
+  transform: scale(1.05);
+}
+
+.mobile-collection-content {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.mobile-collection-content h3 {
+  font-size: clamp(18px, 5vw, 22px);
+  font-weight: 700;
+  color: #0B1F66;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.mobile-collection-content p {
+  font-size: clamp(14px, 4vw, 16px);
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.mobile-collection-year {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #0B1F66 0%, #4a7ef3 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(11, 31, 102, 0.3);
+}
+
+.mobile-back-to-top {
+  text-align: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.mobile-top-btn {
+  background: linear-gradient(135deg, #4a7ef3 0%, #0B1F66 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(74, 126, 243, 0.3);
+}
+
+.mobile-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(74, 126, 243, 0.4);
+}
+
+.mobile-top-btn .arrow {
+  font-size: 1.2rem;
+  animation: bounceUpArrow 1.5s infinite;
+}
+
+@keyframes bounceUpArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Prevent body scroll when mobile menu is open */
+.menu-open {
+  overflow: hidden;
+}
+
+/* Hide desktop sections on mobile and vice versa */
+@media (max-width: 767px) {
+  .d-md-flex {
+    display: none !important;
+  }
+  
+  .d-md-block {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none !important;
+  }
+  
+  .mobile-nav-toggle,
+  .mobile-nav-menu,
+  .mobile-skills-section,
+  .mobile-collection-section {
+    display: none !important;
+  }
+}
+
+/* Responsive adjustments for mobile sections */
+@media (max-width: 480px) {
+  .mobile-skills-section,
+  .mobile-collection-section {
+    padding: 1.5rem 0.8rem;
+  }
+  
+  .mobile-skill-card,
+  .mobile-collection-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mobile-collection-image {
+    height: 180px;
+  }
 }
